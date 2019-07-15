@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app='ShoppingListCheckOff'>
+  <head>
+    <meta charset="utf-8">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>Custom Service</title>
+  </head>
+  <body>
+    <h1>Shopping Checklist</h1>
+<!-- 2 seperate shoppinglists with out affecting eachother -->
+    <div id="buyCheckList" ng-controller='ToBuyController as buyCheckList'>
+      <h3>To Buy:</h3>
+      <ol>
+        <li ng-repeat="item in buyCheckList.items">
+          Buy {{ item.itemQuantity }} {{ item.itemName }}
+          <button ng-click="buyCheckList.boughtItem($index);">Bought</button>
+        </li>
+      </ol>
+      <div ng-if="buyCheckList.message" class="message">{{buyCheckList.message}}</div>
+    </div>
+    <div id="boughtItemList" ng-controller='AlreadyBoughtController as boughtItemList'>
+      <h3>Already Bought:</h3>
+      <div ng-if="boughtItemList.checkIfEmpty(); " class="message">{{boughtItemList.message}}</div>
+      <ol>
+        <li ng-repeat="item in boughtItemList.items">
+          Bought {{ item.itemQuantity }} {{ item.itemName }}
+        </li>
+      </ol>
+
+    </div>
+
+  </body>
+</html>
