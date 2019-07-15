@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" ng-app='LunchCheck'>
+  <head>
+    <meta charset="utf-8">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <title>Module 1 Solution</title>
+  </head>
+  <body>
+    <h1>Order</h1>
+    <div ng-controller = 'LunchCheckController'>
+      <div>
+        your order:
+        <input type="text" ng-model="orderList">
+        (empty item not considered)
+        <button ng-click="orderStatus()">Check If Too Much</button>
+      </div>
+      <div>
+          {{result}}
+       </div>
+       </div>
+  </body>
+</html>
